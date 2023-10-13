@@ -19,17 +19,9 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": ".",
-    "paths": {
-      "@components/*": ["src/components/*"],
-      "@assets/*": ["src/assets/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@utils/*": ["src/utils/*"],
-      "@api/*": ["src/api/*"]
-    }
+    "jsxImportSource": "react",
+
   },
-  "include": [
-    "src"
-  ]
+  "extends": "./tsconfig.paths.json",
+  "include": ["src"]
 }
