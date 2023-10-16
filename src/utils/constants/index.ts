@@ -1,1 +1,1 @@
-export {configs} from './configs';
+export { configs } from "./configs";

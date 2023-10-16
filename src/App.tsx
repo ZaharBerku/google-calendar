@@ -1,7 +1,8 @@
-import React from 'react';
+import { GoogleCalendar } from "@components/index";
+import "./index.css";
 
 const App = () => {
-  return <div className="App"></div>;
+  return <GoogleCalendar />;
 };
 
-export {App};
+export { App };
