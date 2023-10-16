@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState, DragEvent } from "react";
 import { set, format } from "date-fns";
 import { useApi } from "@hooks/index";
 import { Cell } from "@components/index";
@@ -29,11 +29,11 @@ const Days: FC<DaysPorps> = ({
   const arrLastMonthDays = Array.from({ length: prefixDays });
   const arrNextMonthDays = Array.from({ length: suffixDays });
 
-  const dragStartHandle = (_: DragEvent, eventDay: any) => {
+  const dragStartHandle = (_: DragEvent<HTMLLIElement>, eventDay: EventType) => {
     setDragEvent(eventDay);
   };
 
-  const dragEndHandle = (event: DragEvent) => {
+  const dragEndHandle = (event: DragEvent<HTMLDivElement>) => {
     if (event.target instanceof HTMLElement) {
       const element = event.target.closest("[data-day]");
       const { day } = (element as HTMLLIElement)?.dataset || {};
@@ -47,7 +47,7 @@ const Days: FC<DaysPorps> = ({
     }
   };
 
-  const dragHandle = (event: DragEvent) => {
+  const dragHandle = (event: DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     if (event.target instanceof HTMLElement) {
       const element = event.target.closest("[data-day]");

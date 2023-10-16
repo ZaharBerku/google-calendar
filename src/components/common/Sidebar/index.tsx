@@ -30,11 +30,11 @@ const Sidebar: FC<SidebarProps> = ({ filter, setFilter }) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target) {
       const { checked, name } = event.target;
-      setFilter(
-        (currentFilter: { [x: string]: boolean }) => (
-          (currentFilter[name] = checked), { ...currentFilter }
-        )
-      );
+      setFilter((currentFilter) => {
+        return currentFilter
+          ? ((currentFilter[name] = checked), { ...currentFilter })
+          : currentFilter;
+      });
     }
   };
 

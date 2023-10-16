@@ -1,4 +1,8 @@
 export type SidebarProps = {
   filter: null | { [color: string]: boolean };
-  setFilter: (value: any) => void;
+  setFilter: React.Dispatch<
+    React.SetStateAction<{
+      [color: string]: boolean;
+    } | null>
+  >;
 };

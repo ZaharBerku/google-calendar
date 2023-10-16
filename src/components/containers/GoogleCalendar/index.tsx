@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Calendar, Sidebar } from "@components/index";
 import { useApi } from "@hooks/index";
+import { EventsType, EventType } from "@utils/types";
 import { WrapperGoogleCalendar, ContainerGoogleCalendar } from "./index.styled";
 
 const DATE = new Date();
@@ -15,10 +16,10 @@ const GoogleCalendar = () => {
     setCurrentDate(date);
   };
   const setFilterEvents = () => {
-    const eventsDays = events.getEvents();
-    const filter: any = Object.values(eventsDays)
+    const eventsDays: EventsType = events.getEvents();
+    const filter: { [color: string]: boolean } = Object.values(eventsDays)
       .flat()
-      .reduce((item: any, event: any) => {
+      .reduce((item: { [color: string]: boolean }, event: EventType) => {
         item[event.color] = true;
         return item;
       }, {});

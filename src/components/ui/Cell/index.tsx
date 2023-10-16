@@ -26,11 +26,15 @@ const ListEvents: FC<ListEventsProps> = ({
       }
     }
   };
-  
+
   return (
     <List onClick={handleClick}>
       {listEvents?.map((event) => {
-        if (filter && !filter[event.color]) {
+        if (
+          filter &&
+          filter[event.color] !== undefined &&
+          !filter[event.color]
+        ) {
           return null;
         }
         return (
